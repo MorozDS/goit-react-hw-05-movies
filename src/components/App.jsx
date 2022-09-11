@@ -1,3 +1,6 @@
+import { Routes, Route } from 'react-router-dom';
+import HomePage from 'pages/HomePage';
+
 export const App = () => {
   return (
     <div
@@ -7,10 +10,12 @@ export const App = () => {
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: 40,
-        color: '#010101'
+        color: '#010101',
       }}
     >
-      React homework template
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
     </div>
   );
 };
