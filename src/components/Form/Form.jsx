@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useSearchParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import s from 'components/Form/Form.module.css';
 
 export default function Form({ onSearchClick }) {
   const [searchParams] = useSearchParams();
@@ -20,12 +22,13 @@ export default function Form({ onSearchClick }) {
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <button type="submit">
+    <div className={s.formblock}>
+      <form onSubmit={onSubmit} className={s.form}>
+        <button type="submit" className={s.button}>
           <span>Search</span>
         </button>
         <input
+          className={s.input}
           type="text"
           name="searchQuery"
           autoComplete="off"
@@ -38,3 +41,6 @@ export default function Form({ onSearchClick }) {
     </div>
   );
 }
+Form.propTypes = {
+  onSearchClick: PropTypes.func.isRequired,
+};

@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import s from 'components/MovieCard/MovieCard.module.css';
+import BackButton from 'components/Button/BackButton';
+import PropTypes from 'prop-types';
 
 export default function MovieCard({ movie }) {
   const { poster_path, title, release_date, vote_average, overview, genres } =
@@ -7,6 +9,7 @@ export default function MovieCard({ movie }) {
 
   return (
     <>
+      <BackButton />
       <div className={s.card}>
         <img
           src={`https://image.tmdb.org/t/p/w342${poster_path}`}
@@ -44,3 +47,18 @@ export default function MovieCard({ movie }) {
     </>
   );
 }
+
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    poster_path: PropTypes.string,
+    title: PropTypes.string,
+    release_date: PropTypes.string,
+    vote_average: PropTypes.number,
+    overview: PropTypes.string,
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string,
+      })
+    ),
+  }),
+};

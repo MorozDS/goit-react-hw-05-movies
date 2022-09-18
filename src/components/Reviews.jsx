@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { fetchMovieReviews } from 'services/api';
 import ReviewsItem from 'components/ReviewsItem';
 
+
 export default function Reviews() {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
@@ -10,7 +11,6 @@ export default function Reviews() {
   useEffect(() => {
     fetchMovieReviews(movieId).then(data => setReviews(data.results));
   }, [movieId]);
-  console.log(reviews);
 
   return (
     <ul>

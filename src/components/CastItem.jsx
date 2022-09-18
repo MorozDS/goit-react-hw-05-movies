@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export default function CastItem({ character, name, profile_path }) {
   return (
     <>
@@ -12,3 +14,9 @@ export default function CastItem({ character, name, profile_path }) {
     </>
   );
 }
+
+CastItem.propTypes = {
+  character: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  profile_path: PropTypes.string,
+};

@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import Form from 'components/Form';
+import Form from 'components/Form/Form';
 import { fetchSearchQuery } from 'services/api';
 import { MoviesGallery } from 'components/MoviesGallery';
+import BackButton from 'components/Button/BackButton';
 
 export default function MovieSearch() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -35,6 +36,7 @@ export default function MovieSearch() {
 
   return (
     <>
+      <BackButton />
       <Form onSearchClick={onSearchClick} />
       <MoviesGallery movies={movies} />
     </>

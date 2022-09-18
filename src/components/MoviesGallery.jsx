@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export function MoviesGallery({ movies }) {
   return (
@@ -11,3 +12,12 @@ export function MoviesGallery({ movies }) {
     </ul>
   );
 }
+
+MoviesGallery.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+    })
+  ),
+};
